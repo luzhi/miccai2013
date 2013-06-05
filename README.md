@@ -20,7 +20,6 @@ MICCAI 2013 code - Segmenting Multiple Overlapping Cervical Cells by Joint Level
     1.4 
 2. This code is compatible with Matlab R2012b or after.
 
-
 ====================
     How to run?
 ====================
