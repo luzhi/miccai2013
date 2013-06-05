@@ -21,7 +21,7 @@ MICCAI 2013 code - Segmenting Multiple Overlapping Cervical Cells by Joint Level
 2. This code is compatible with Matlab R2012b or after.
 
 ====================
-    How to run?
+   How to run?
 ====================
 1. Invoke script "Run.m". The argument in line 7 to invoke the function Runner_inOne(...) refers to:
     1.1 'EDF' - the real Pap smear images
