@@ -1,6 +1,5 @@
-function [ imClumpBackgroundMaskSet ] = GenerateClumpBackgroundMask( imSet, imGTSet, RawClumpMaskSet, imNum )
-% Generate the mask containing nuclei, clump and background using Andrew's
-% annotated nuclei mask and our previous generated clump
+function [ imClumpBackgroundMaskSet ] = GenerateClumpBackgroundMask( imSet, RawClumpMaskSet, imNum )
+% Generate the mask containing nuclei, clump and background using our previous generated clump
 %   Detailed explanation goes here
     
     imClumpBackgroundMaskSet = cell(imNum,1);

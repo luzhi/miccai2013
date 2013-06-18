@@ -125,7 +125,7 @@ end
 %    LOAD IMAGES DATA
 %=========================
 imSet = cell(imNum,1);
-imGTSet = cell(imNum,1);
+% imGTSet = cell(imNum,1);
 
 %=================================
 %  Read images of synthetic data
@@ -133,7 +133,7 @@ imGTSet = cell(imNum,1);
 if strcmp(dataset_name, 'Train') || strcmp(dataset_name, 'Test') || strcmp(dataset_name, 'Rebuttal')
 	 for i = 1:imNum
 		   imSet{i,1} = imread(strcat(imFilePath, 'Cell', num2str(i),'.png'));
-		   imGTSet{i,1} = imread(strcat(imFilePath, 'Cell', num2str(i),'_GTMask.png'));
+% 		   imGTSet{i,1} = imread(strcat(imFilePath, 'Cell', num2str(i),'_GTMask.png'));
 	 end
 end
 
@@ -143,7 +143,7 @@ end
 if strcmp(dataset_name, 'EDF')
 	for i = 1:imNum
 		  imSet{i,1} = imread(strcat(imFilePath, 'EDF00', num2str(i - 1),'.png'));
-		  imGTSet{i,1} = imread(strcat(imFilePath, 'EDF00', num2str(i - 1),'_GTMask.png'));
+% 		  imGTSet{i,1} = imread(strcat(imFilePath, 'EDF00', num2str(i - 1),'_GTMask.png'));
 	end
 end
 
@@ -193,14 +193,14 @@ catch
     imCBMaskSet = cell(imNum,1);
     % Train the adaptive GMM model by all the images
     im_index2train = 1:imNum;
-    imCBMaskSet = GenerateClumpBackgroundMask(imSet, imGTSet, RawClumpMaskSet, imNum);
+    imCBMaskSet = GenerateClumpBackgroundMask(imSet, RawClumpMaskSet, imNum);
     
     %=================================
     % Semi-supervised Learning by GMM
     %=================================
     for iter_GMM = 1:10
         if iter_GMM > 1
-            imCBMaskSet = GenerateClumpBackgroundMask(imSet, imGTSet, imCBMaskSet, imNum);
+            imCBMaskSet = GenerateClumpBackgroundMask(imSet, imCBMaskSet, imNum);
         end
         [ gmm_model_clump, gmm_model_background ]  = TrainGMM2CB( imSet, imCBMaskSet, im_index2train, imSize );
  
