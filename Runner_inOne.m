@@ -221,6 +221,12 @@ catch
     imCBMaskSetRefined = cell(imNum,1);
     for i = 1:imNum   
         imCBMask = imCBMaskSet{i,1};
+        %+------------------------------------+
+        %| Empirically Noise Removing Method. |
+        %|    The usage of Level Set here     |
+        %|        is different from           |
+        %|       that in segmentation.        |
+        %+------------------------------------+
         imCBMask = cleanNoiseRegionsByLevelSet(im, imCBMask, iter_in, iter_out, alfa, lambda, wTrust );
         imCBMask = im2bw(imCBMask);
         
