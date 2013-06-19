@@ -108,18 +108,6 @@ if strcmp(dataset_name, 'EDF')
     storageExtent = 'EDF/EDF_Extent/';
 end
 
-%=================================
-% Parameters for Rebuttal dataset
-%=================================
-if strcmp(dataset_name, 'Rebuttal')
-		imSize = 512;
-		imNum = 18;
-		imFilePath = 'ims/Images_rebuttal/';
-    storageCommonPath = 'Rebuttal/Rebuttal_Common/';
-    storageInitial = 'Rebuttal/Rebuttal_Initial/';
-    storageExtent = 'Rebuttal/Rebuttal_Extent/';
-end
-
 %%
 %=========================
 %    LOAD IMAGES DATA
@@ -130,7 +118,7 @@ imSet = cell(imNum,1);
 %=================================
 %  Read images of synthetic data
 %================================= 
-if strcmp(dataset_name, 'Train') || strcmp(dataset_name, 'Test') || strcmp(dataset_name, 'Rebuttal')
+if strcmp(dataset_name, 'Train') || strcmp(dataset_name, 'Test')
 	 for i = 1:imNum
 		   imSet{i,1} = imread(strcat(imFilePath, 'Cell', num2str(i),'.png'));
 % 		   imGTSet{i,1} = imread(strcat(imFilePath, 'Cell', num2str(i),'_GTMask.png'));
